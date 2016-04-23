@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    protected void startPlaying(View view) {
+    public void startPlaying(View view) {
 
         EditText playerOne = (EditText)findViewById(R.id.player_one_name);
         EditText playerTwo = (EditText)findViewById(R.id.player_two_name);

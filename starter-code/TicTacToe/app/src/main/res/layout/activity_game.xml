@@ -37,7 +37,8 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
             android:gravity="center"
-            android:background="@drawable/border" />
+            android:background="@drawable/border"
+            android:onClick="TV1"/>
 
         <TextView
             android:layout_width="100dp"
@@ -50,7 +51,8 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
             android:gravity="center"
-            android:background="@drawable/border" />
+            android:background="@drawable/border"
+            android:onClick="TV2"/>
 
         <TextView
             android:layout_width="100dp"
@@ -63,7 +65,8 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
             android:gravity="center"
-            android:background="@drawable/border" />
+            android:background="@drawable/border"
+            android:onClick="TV3"/>
 
         <TextView
             android:layout_width="100dp"
@@ -76,7 +79,8 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
             android:gravity="center"
-            android:background="@drawable/border" />
+            android:background="@drawable/border"
+            android:onClick="TV4"/>
 
         <TextView
             android:layout_width="100dp"
@@ -89,7 +93,8 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
             android:gravity="center"
-            android:background="@drawable/border" />
+            android:background="@drawable/border"
+            android:onClick="TV5"/>
 
         <TextView
             android:layout_width="100dp"
@@ -102,7 +107,8 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
             android:gravity="center"
-            android:background="@drawable/border" />
+            android:background="@drawable/border"
+            android:onClick="TV6"/>
 
         <TextView
             android:layout_width="100dp"
@@ -115,7 +121,8 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
             android:gravity="center"
-            android:background="@drawable/border" />
+            android:background="@drawable/border"
+            android:onClick="TV7"/>
 
         <TextView
             android:layout_width="100dp"
@@ -128,7 +135,8 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
             android:gravity="center"
-            android:background="@drawable/border" />
+            android:background="@drawable/border"
+            android:onClick="TV8"/>
 
         <TextView
             android:layout_width="100dp"
@@ -141,7 +149,8 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
             android:gravity="center"
-            android:background="@drawable/border" />
+            android:background="@drawable/border"
+            android:onClick="TV9"/>
 
     </GridLayout>
 </RelativeLayout>
