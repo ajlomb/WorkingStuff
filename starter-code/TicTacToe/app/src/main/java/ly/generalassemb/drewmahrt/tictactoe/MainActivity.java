@@ -27,20 +27,22 @@ public class MainActivity extends AppCompatActivity {
         EditText playerOne = (EditText)findViewById(R.id.player_one_name);
         EditText playerTwo = (EditText)findViewById(R.id.player_two_name);
 
+
         if(playerOne.toString().isEmpty() || playerTwo.toString().isEmpty()){
             Toast.makeText(MainActivity.this, "Who is playing!?", Toast.LENGTH_LONG).show();
             return;
+        }else {
+
+            SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("SharedKey", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+            editor.putString("playerOneName", playerOne.getText().toString());
+            editor.putString("playerTwoName", playerTwo.getText().toString());
+
+            editor.commit();
+
+            Intent startGame = new Intent(MainActivity.this, GameActivity.class);
+            startActivity(startGame);
         }
-
-        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("SharedKey", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        editor.putString("playerOneName", playerOne.getText().toString());
-        editor.putString("playerTwoName", playerTwo.getText().toString());
-
-        editor.commit();
-
-        Intent startGame = new Intent(MainActivity.this, GameActivity.class);
-        startActivity(startGame);
     }
 }

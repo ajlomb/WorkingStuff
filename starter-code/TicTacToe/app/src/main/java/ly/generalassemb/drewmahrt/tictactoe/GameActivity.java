@@ -1,5 +1,6 @@
 package ly.generalassemb.drewmahrt.tictactoe;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 public class GameActivity extends AppCompatActivity {
 
     double counter;
+    String playerOneName1, playerTwoName2;
     TextView playerTurn;
     TextView boxOne, boxTwo, boxThree, boxFour, boxFive, boxSix, boxSeven, boxEight, boxNine;
 
@@ -17,97 +19,126 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        playerTurn = (TextView)findViewById(R.id.game_message_text);
-        boxOne = (TextView)findViewById(R.id.textView);
-        boxTwo = (TextView)findViewById(R.id.textView2);
-        boxThree = (TextView)findViewById(R.id.textView3);
-        boxFour = (TextView)findViewById(R.id.textView4);
-        boxFive = (TextView)findViewById(R.id.textView5);
-        boxSix = (TextView)findViewById(R.id.textView6);
-        boxSeven = (TextView)findViewById(R.id.textView7);
-        boxEight = (TextView)findViewById(R.id.textView8);
-        boxNine = (TextView)findViewById(R.id.textView9);
+        playerTurn = (TextView) findViewById(R.id.game_message_text);
+        boxOne = (TextView) findViewById(R.id.textView);
+        boxTwo = (TextView) findViewById(R.id.textView2);
+        boxThree = (TextView) findViewById(R.id.textView3);
+        boxFour = (TextView) findViewById(R.id.textView4);
+        boxFive = (TextView) findViewById(R.id.textView5);
+        boxSix = (TextView) findViewById(R.id.textView6);
+        boxSeven = (TextView) findViewById(R.id.textView7);
+        boxEight = (TextView) findViewById(R.id.textView8);
+        boxNine = (TextView) findViewById(R.id.textView9);
 
-        double counter = Math.random() * 2;                                               // Sets random player as first player
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("SharedKey", MODE_PRIVATE);
+        sharedPreferences.getString("playerOneName", "");
+        sharedPreferences.getString("playerTwoName", "");
 
-        if (counter % 2 == 0) {
+        playerOneName1 = String.valueOf(sharedPreferences.getString("playerOneName", ""));
+        playerTwoName2 = String.valueOf(sharedPreferences.getString("playerTwoName", ""));
 
-        }
-        if (counter % 2 == 1) {
+  //      counter = 2;
 
-        }
-        counter++;
+
+            if (counter % 2 == 0) {
+                playerTurn.setText(playerOneName1);
+            } else if (counter % 2 == 1) {
+                playerTurn.setText(playerTwoName2);
+            }
+
+
     }
 
 
     public void TV1(View view) {
         if (counter % 2 == 0) {
-            boxOne.setText("x");
+            boxOne.setText(":(");
+            playerTurn.setText(playerTwoName2);
         } else if (counter % 2 == 1) {
-            boxOne.setText("o");
-        }
+            boxOne.setText(":)");
+            playerTurn.setText(playerOneName1);
+        }view.setClickable(false);
         counter++;
     }
     public void TV2(View view) {
         if (counter % 2 == 0) {
-            boxTwo.setText("x");
+            boxTwo.setText(":(");
+            playerTurn.setText(playerTwoName2);
         } else if (counter % 2 == 1) {
-            boxTwo.setText("o");
-        }
+            boxTwo.setText(":)");
+            playerTurn.setText(playerOneName1);
+        }view.setClickable(false);
         counter++;
     }
     public void TV3(View view) {
         if (counter % 2 == 0) {
-            boxThree.setText("x");
+            boxThree.setText(":(");
+            playerTurn.setText(playerTwoName2);
         } else if (counter % 2 == 1) {
-            boxThree.setText("o");
-        }
+            boxThree.setText(":)");
+            playerTurn.setText(playerOneName1);
+        }view.setClickable(false);
         counter++;
     }
     public void TV4(View view) {
         if (counter % 2 == 0) {
-            boxFour.setText("x");
+            boxFour.setText(":(");
+            playerTurn.setText(playerTwoName2);
         } else if (counter % 2 == 1) {
-            boxFour.setText("o");
-        }
+            boxFour.setText(":)");
+            playerTurn.setText(playerOneName1);
+        }view.setClickable(false);
         counter++;
     }
     public void TV5(View view) {
         if (counter % 2 == 0) {
-            boxFive.setText("x");
+            boxFive.setText(":(");
+            playerTurn.setText(playerTwoName2);
         } else if (counter % 2 == 1) {
-            boxFive.setText("o");
-        }
+            boxFive.setText(":)");
+            playerTurn.setText(playerOneName1);
+        }view.setClickable(false);
         counter++;
     }
     public void TV6(View view) {
         if (counter % 2 == 0) {
-            boxSix.setText("x");
+            boxSix.setText(":(");
+            playerTurn.setText(playerTwoName2);
         } else if (counter % 2 == 1) {
-            boxSix.setText("o");
-        }
+            boxSix.setText(":)");
+            playerTurn.setText(playerOneName1);
+        }view.setClickable(false);
         counter++;
     }
     public void TV7(View view) {
         if (counter % 2 == 0) {
-            boxSeven.setText("x");
+            boxSeven.setText(":(");
+            playerTurn.setText(playerTwoName2);
         } else if (counter % 2 == 1) {
-            boxSeven.setText("o");
-        }counter++;
+            boxSeven.setText(":)");
+            playerTurn.setText(playerOneName1);
+        }view.setClickable(false);
+        counter++;
     }
     public void TV8(View view) {
         if (counter % 2 == 0) {
-            boxEight.setText("x");
+            boxEight.setText(":(");
+            playerTurn.setText(playerTwoName2);
         } else if (counter % 2 == 1) {
-            boxEight.setText("o");
-        }counter++;
+            boxEight.setText(":)");
+            playerTurn.setText(playerOneName1);
+        }view.setClickable(false);
+        counter++;
     }
     public void TV9(View view) {
         if (counter % 2 == 0) {
-            boxNine.setText("x");
+            boxNine.setText(":(");
+            playerTurn.setText(playerTwoName2);
         } else if (counter % 2 == 1) {
-            boxNine.setText("o");
-        }counter++;
+            boxNine.setText(":)");
+            playerTurn.setText(playerOneName1);
+        }view.setClickable(false);
+        counter++;
     }
 }
 
