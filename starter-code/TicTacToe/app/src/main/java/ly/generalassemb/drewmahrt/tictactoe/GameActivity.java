@@ -8,12 +8,13 @@ import android.widget.TextView;
 
 public class GameActivity extends AppCompatActivity {
 
+    boolean chickenDinner;
     double counter;
     String playerOneName1, playerTwoName2;
     TextView playerTurn;
     TextView boxOne, boxTwo, boxThree, boxFour, boxFive, boxSix, boxSeven, boxEight, boxNine;
 //    ArrayList<Integer> p1, p2;
-  //  ArrayAdapter<String> mPlayerAdapter;
+//    ArrayAdapter<String> mPlayerAdapter;
 
 
     @Override
@@ -35,7 +36,7 @@ public class GameActivity extends AppCompatActivity {
 //        p2 = new ArrayList<>();
 
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("SharedKey", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+ //       SharedPreferences.Editor editor = sharedPreferences.edit();
         sharedPreferences.getString("playerOneName", "");
         sharedPreferences.getString("playerTwoName", "");
 
@@ -44,27 +45,49 @@ public class GameActivity extends AppCompatActivity {
 
         playerTurn.setText(playerOneName1);
 
-        if ((boxOne.equals(":(") && boxTwo.equals(":(") && boxThree.equals(":(")) ||
-                (boxFour.equals(":(") && boxFive.equals(":(") && boxSix.equals(":(")) ||
-                (boxSeven.equals(":(") && boxEight.equals(":(") && boxNine.equals(":(")) ||
-                (boxOne.equals(":(") && boxFive.equals(":(") && boxNine.equals(":(")) ||
-                (boxThree.equals(":(") && boxFive.equals(":(") && boxSeven.equals(":("))) {
-            editor.putString("winnerWinner", playerOneName1);
-            editor.commit();
-        } else if ((boxOne.equals(":)") && boxTwo.equals(":)") && boxThree.equals(":)")) ||
-                (boxFour.equals(":)") && boxFive.equals(":)") && boxSix.equals(":)")) ||
-                (boxSeven.equals(":)") && boxEight.equals(":)") && boxNine.equals(":)")) ||
-                (boxOne.equals(":)") && boxFive.equals(":)") && boxNine.equals(":)")) ||
-                (boxThree.equals(":)") && boxFive.equals(":)") && boxSeven.equals(":)"))) {
-            editor.putString("winnerWinner", playerTwoName2);
-            editor.commit();
-        }
-
     }
 
 
-
-
+    public void checkWinner() {
+        chickenDinner = false;
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("SharedKey", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        if ((boxOne.getText().equals(":(") && boxTwo.getText().equals(":(") && boxThree.getText().equals(":(")) ||
+                (boxFour.getText().equals(":(") && boxFive.getText().equals(":(") && boxSix.getText().equals(":(")) ||
+                (boxSeven.getText().equals(":(") && boxEight.getText().equals(":(") && boxNine.getText().equals(":(")) ||
+                (boxOne.getText().equals(":(") && boxFour.getText().equals(":(") && boxSeven.getText().equals(":(")) ||
+                (boxTwo.getText().equals(":(") && boxFive.getText().equals(":(") && boxEight.getText().equals(":(")) ||
+                (boxThree.getText().equals(":(") && boxSix.getText().equals(":(") && boxNine.getText().equals(":(")) ||
+                (boxOne.getText().equals(":(") && boxFive.getText().equals(":(") && boxNine.getText().equals(":(")) ||
+                (boxThree.getText().equals(":(") && boxFive.getText().equals(":(") && boxSeven.getText().equals(":("))) {
+            chickenDinner = true;
+            if (chickenDinner == true) {
+                playerTurn.setText(playerOneName1+ " stands triumphant over " +playerTwoName2+"!");
+                editor.putString("winnerWinner", playerOneName1);
+                editor.commit();
+                boxOne.setClickable(false); boxTwo.setClickable(false); boxThree.setClickable(false); boxFour.setClickable(false);
+                boxFive.setClickable(false); boxSix.setClickable(false); boxSeven.setClickable(false); boxEight.setClickable(false);
+                boxNine.setClickable(false);
+            }
+        } else if ((boxOne.getText().equals(":)") && boxTwo.getText().equals(":)") && boxThree.getText().equals(":)")) ||
+                (boxFour.getText().equals(":)") && boxFive.getText().equals(":)") && boxSix.getText().equals(":)")) ||
+                (boxSeven.getText().equals(":)") && boxEight.getText().equals(":)") && boxNine.getText().equals(":)")) ||
+                (boxOne.getText().equals(":)") && boxFour.getText().equals(":)") && boxSeven.getText().equals(":)")) ||
+                (boxTwo.getText().equals(":)") && boxFive.getText().equals(":)") && boxEight.getText().equals(":)")) ||
+                (boxThree.getText().equals(":)") && boxSix.getText().equals(":)") && boxNine.getText().equals(":)")) ||
+                (boxOne.getText().equals(":)") && boxFive.getText().equals(":)") && boxNine.getText().equals(":)")) ||
+                (boxThree.getText().equals(":)") && boxFive.getText().equals(":)") && boxSeven.getText().equals(":)"))) {
+            chickenDinner = true;
+            if (chickenDinner == true) {
+                playerTurn.setText(playerTwoName2+ " has schooled " +playerOneName1+ " in a child's game!");
+                editor.putString("winnerWinner", playerTwoName2);
+                editor.commit();
+                boxOne.setClickable(false); boxTwo.setClickable(false); boxThree.setClickable(false); boxFour.setClickable(false);
+                boxFive.setClickable(false); boxSix.setClickable(false); boxSeven.setClickable(false); boxEight.setClickable(false);
+                boxNine.setClickable(false);
+            }
+        }
+    }
 
     public void TV1(View view) {
         if (counter % 2 == 0) {
@@ -75,7 +98,8 @@ public class GameActivity extends AppCompatActivity {
             boxOne.setText(":)");
             playerTurn.setText(playerOneName1);
  //           p2.add(1);
-        }view.setClickable(false);
+        }checkWinner();
+        view.setClickable(false);
         counter++;
     }
     public void TV2(View view) {
@@ -87,7 +111,8 @@ public class GameActivity extends AppCompatActivity {
             boxTwo.setText(":)");
             playerTurn.setText(playerOneName1);
 //            p2.add("2");
-        }view.setClickable(false);
+        }checkWinner();
+        view.setClickable(false);
         counter++;
     }
     public void TV3(View view) {
@@ -99,7 +124,8 @@ public class GameActivity extends AppCompatActivity {
             boxThree.setText(":)");
             playerTurn.setText(playerOneName1);
  //           p2.add("3");
-        }view.setClickable(false);
+        }checkWinner();
+        view.setClickable(false);
         counter++;
     }
     public void TV4(View view) {
@@ -111,7 +137,8 @@ public class GameActivity extends AppCompatActivity {
             boxFour.setText(":)");
             playerTurn.setText(playerOneName1);
 //            p2.add("4");
-        }view.setClickable(false);
+        }checkWinner();
+        view.setClickable(false);
         counter++;
     }
     public void TV5(View view) {
@@ -123,7 +150,8 @@ public class GameActivity extends AppCompatActivity {
             boxFive.setText(":)");
             playerTurn.setText(playerOneName1);
    //         p2.add("5");
-        }view.setClickable(false);
+        }checkWinner();
+        view.setClickable(false);
         counter++;
     }
     public void TV6(View view) {
@@ -135,7 +163,8 @@ public class GameActivity extends AppCompatActivity {
             boxSix.setText(":)");
             playerTurn.setText(playerOneName1);
  //           p2.add("6");
-        }view.setClickable(false);
+        }checkWinner();
+        view.setClickable(false);
         counter++;
     }
     public void TV7(View view) {
@@ -147,7 +176,8 @@ public class GameActivity extends AppCompatActivity {
             boxSeven.setText(":)");
             playerTurn.setText(playerOneName1);
   //          p2.add("7");
-        }view.setClickable(false);
+        }checkWinner();
+        view.setClickable(false);
         counter++;
     }
     public void TV8(View view) {
@@ -159,7 +189,8 @@ public class GameActivity extends AppCompatActivity {
             boxEight.setText(":)");
             playerTurn.setText(playerOneName1);
  //           p2.add("8");
-        }view.setClickable(false);
+        }checkWinner();
+        view.setClickable(false);
         counter++;
     }
     public void TV9(View view) {
@@ -171,7 +202,8 @@ public class GameActivity extends AppCompatActivity {
             boxNine.setText(":)");
             playerTurn.setText(playerOneName1);
   //          p2.add("9");
-        }view.setClickable(false);
+        }checkWinner();
+        view.setClickable(false);
         counter++;
     }
 }

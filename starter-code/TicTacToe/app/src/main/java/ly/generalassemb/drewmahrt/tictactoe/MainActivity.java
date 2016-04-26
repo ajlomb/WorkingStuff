@@ -6,10 +6,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    String winnerWinner;
+    TextView winner;
 //    String playerOne;
 //    String playerTwo;
 //    ArrayList<String> players;
@@ -30,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
         if(playerOne.toString().isEmpty() || playerTwo.toString().isEmpty()){
             Toast.makeText(MainActivity.this, "Who is playing!?", Toast.LENGTH_LONG).show();
-            return;
         }else {
 
             SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("SharedKey", MODE_PRIVATE);
@@ -45,4 +47,17 @@ public class MainActivity extends AppCompatActivity {
             startActivity(startGame);
         }
     }
+
+    public void onResume() {
+        super.onResume();
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("SharedKey", MODE_PRIVATE);
+        sharedPreferences.getString("winnerWinner", "");
+
+        winner = (TextView)findViewById(R.id.last_winner_text);
+
+        winnerWinner = String.valueOf(sharedPreferences.getString("winnerWinner", ""));
+
+        winner.setText("Previous game winner was " +winnerWinner+"!!!");
+    }
+
 }
