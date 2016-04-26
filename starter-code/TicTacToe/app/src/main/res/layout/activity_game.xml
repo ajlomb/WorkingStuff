@@ -12,9 +12,11 @@
 
     <TextView
         android:id="@+id/game_message_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="40sp"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:layout_height="135dp"
+        android:textSize="30sp"
         android:text="Player One&apos;s Turn"
         android:layout_centerHorizontal="true"
         android:paddingBottom="100dp"/>

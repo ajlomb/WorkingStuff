@@ -49,11 +49,15 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("SharedKey", MODE_PRIVATE);
         sharedPreferences.getString("winnerWinner", "");
 
-        winner = (TextView)findViewById(R.id.last_winner_text);
+        winner = (TextView) findViewById(R.id.last_winner_text);
 
         winnerWinner = String.valueOf(sharedPreferences.getString("winnerWinner", ""));
-
-        winner.setText("Previous game winner was " +winnerWinner+"!!!");
+        //adds different text depending on if games have been played previously or not; #aesthetics.
+        if (sharedPreferences.getString("winnerWinner", "").toString().isEmpty()) {
+            winner.setText("Welcome to Happy-face Sad-face!");
+        } else {
+            winner.setText("Previous game winner was " + winnerWinner + "!!!");
+        }
     }
 
 }
