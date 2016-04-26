@@ -13,9 +13,6 @@ public class GameActivity extends AppCompatActivity {
     String playerOneName1, playerTwoName2;
     TextView playerTurn;
     TextView boxOne, boxTwo, boxThree, boxFour, boxFive, boxSix, boxSeven, boxEight, boxNine;
-//    ArrayList<Integer> p1, p2;
-//    ArrayAdapter<String> mPlayerAdapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +29,8 @@ public class GameActivity extends AppCompatActivity {
         boxSeven = (TextView) findViewById(R.id.textView7);
         boxEight = (TextView) findViewById(R.id.textView8);
         boxNine = (TextView) findViewById(R.id.textView9);
-//        p1 = new ArrayList<>();
-//        p2 = new ArrayList<>();
 
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("SharedKey", MODE_PRIVATE);
- //       SharedPreferences.Editor editor = sharedPreferences.edit();
         sharedPreferences.getString("playerOneName", "");
         sharedPreferences.getString("playerTwoName", "");
 
@@ -44,7 +38,6 @@ public class GameActivity extends AppCompatActivity {
         playerTwoName2 = String.valueOf(sharedPreferences.getString("playerTwoName", ""));
 
         playerTurn.setText(playerOneName1);
-
     }
 
 
@@ -93,11 +86,9 @@ public class GameActivity extends AppCompatActivity {
         if (counter % 2 == 0) {
             boxOne.setText(":(");
             playerTurn.setText(playerTwoName2);
-//            p1.add(1);
         } else if (counter % 2 == 1) {
             boxOne.setText(":)");
             playerTurn.setText(playerOneName1);
- //           p2.add(1);
         }checkWinner();
         view.setClickable(false);
         counter++;
@@ -106,11 +97,9 @@ public class GameActivity extends AppCompatActivity {
         if (counter % 2 == 0) {
             boxTwo.setText(":(");
             playerTurn.setText(playerTwoName2);
- //           p1.add("2");
         } else if (counter % 2 == 1) {
             boxTwo.setText(":)");
             playerTurn.setText(playerOneName1);
-//            p2.add("2");
         }checkWinner();
         view.setClickable(false);
         counter++;
@@ -119,11 +108,9 @@ public class GameActivity extends AppCompatActivity {
         if (counter % 2 == 0) {
             boxThree.setText(":(");
             playerTurn.setText(playerTwoName2);
-//            p1.add("3");
         } else if (counter % 2 == 1) {
             boxThree.setText(":)");
             playerTurn.setText(playerOneName1);
- //           p2.add("3");
         }checkWinner();
         view.setClickable(false);
         counter++;
@@ -132,11 +119,9 @@ public class GameActivity extends AppCompatActivity {
         if (counter % 2 == 0) {
             boxFour.setText(":(");
             playerTurn.setText(playerTwoName2);
- //           p1.add("4");
         } else if (counter % 2 == 1) {
             boxFour.setText(":)");
             playerTurn.setText(playerOneName1);
-//            p2.add("4");
         }checkWinner();
         view.setClickable(false);
         counter++;
@@ -145,11 +130,9 @@ public class GameActivity extends AppCompatActivity {
         if (counter % 2 == 0) {
             boxFive.setText(":(");
             playerTurn.setText(playerTwoName2);
-  //          p1.add("5");
         } else if (counter % 2 == 1) {
             boxFive.setText(":)");
             playerTurn.setText(playerOneName1);
-   //         p2.add("5");
         }checkWinner();
         view.setClickable(false);
         counter++;
@@ -158,11 +141,9 @@ public class GameActivity extends AppCompatActivity {
         if (counter % 2 == 0) {
             boxSix.setText(":(");
             playerTurn.setText(playerTwoName2);
- //           p1.add("6");
         } else if (counter % 2 == 1) {
             boxSix.setText(":)");
             playerTurn.setText(playerOneName1);
- //           p2.add("6");
         }checkWinner();
         view.setClickable(false);
         counter++;
@@ -171,11 +152,9 @@ public class GameActivity extends AppCompatActivity {
         if (counter % 2 == 0) {
             boxSeven.setText(":(");
             playerTurn.setText(playerTwoName2);
-   //         p1.add("7");
         } else if (counter % 2 == 1) {
             boxSeven.setText(":)");
             playerTurn.setText(playerOneName1);
-  //          p2.add("7");
         }checkWinner();
         view.setClickable(false);
         counter++;
@@ -184,11 +163,9 @@ public class GameActivity extends AppCompatActivity {
         if (counter % 2 == 0) {
             boxEight.setText(":(");
             playerTurn.setText(playerTwoName2);
- //           p1.add("8");
         } else if (counter % 2 == 1) {
             boxEight.setText(":)");
             playerTurn.setText(playerOneName1);
- //           p2.add("8");
         }checkWinner();
         view.setClickable(false);
         counter++;
@@ -197,11 +174,9 @@ public class GameActivity extends AppCompatActivity {
         if (counter % 2 == 0) {
             boxNine.setText(":(");
             playerTurn.setText(playerTwoName2);
-  //          p1.add("9");
         } else if (counter % 2 == 1) {
             boxNine.setText(":)");
             playerTurn.setText(playerOneName1);
-  //          p2.add("9");
         }checkWinner();
         view.setClickable(false);
         counter++;

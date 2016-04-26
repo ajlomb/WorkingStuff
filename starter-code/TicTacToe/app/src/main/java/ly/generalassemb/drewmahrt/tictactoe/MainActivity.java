@@ -13,10 +13,6 @@ public class MainActivity extends AppCompatActivity {
 
     String winnerWinner;
     TextView winner;
-//    String playerOne;
-//    String playerTwo;
-//    ArrayList<String> players;
-//    ArrayAdapter<String> mPlayers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,28 +22,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startPlaying(View view) {
-
+        //capture edittext fields
         EditText playerOne = (EditText)findViewById(R.id.player_one_name);
         EditText playerTwo = (EditText)findViewById(R.id.player_two_name);
 
-
-        if(playerOne.toString().isEmpty() || playerTwo.toString().isEmpty()){
+        //prevents play while either name field is blank when button is clicked
+        if(playerOne.getText().toString().isEmpty() || playerTwo.getText().toString().isEmpty()){
             Toast.makeText(MainActivity.this, "Who is playing!?", Toast.LENGTH_LONG).show();
         }else {
-
+            //turn on shared preferences
             SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("SharedKey", MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
-
+            //capture edit text field entry and save it to shared pref.
             editor.putString("playerOneName", playerOne.getText().toString());
             editor.putString("playerTwoName", playerTwo.getText().toString());
 
             editor.commit();
-
+            //intent to move to next activity
             Intent startGame = new Intent(MainActivity.this, GameActivity.class);
             startActivity(startGame);
         }
     }
-
+    //brings back winner of previous games on resume
     public void onResume() {
         super.onResume();
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("SharedKey", MODE_PRIVATE);
