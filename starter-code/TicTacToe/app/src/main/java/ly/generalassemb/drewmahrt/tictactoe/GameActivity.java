@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -62,7 +63,7 @@ public class GameActivity extends AppCompatActivity {
                 boxFive.setClickable(false); boxSix.setClickable(false); boxSeven.setClickable(false); boxEight.setClickable(false);
                 boxNine.setClickable(false);
             }
-        } else if ((boxOne.getText().equals(":)") && boxTwo.getText().equals(":)") && boxThree.getText().equals(":)")) ||
+        } if ((boxOne.getText().equals(":)") && boxTwo.getText().equals(":)") && boxThree.getText().equals(":)")) ||
                 (boxFour.getText().equals(":)") && boxFive.getText().equals(":)") && boxSix.getText().equals(":)")) ||
                 (boxSeven.getText().equals(":)") && boxEight.getText().equals(":)") && boxNine.getText().equals(":)")) ||
                 (boxOne.getText().equals(":)") && boxFour.getText().equals(":)") && boxSeven.getText().equals(":)")) ||
@@ -79,6 +80,8 @@ public class GameActivity extends AppCompatActivity {
                 boxFive.setClickable(false); boxSix.setClickable(false); boxSeven.setClickable(false); boxEight.setClickable(false);
                 boxNine.setClickable(false);
             }
+        } else if (counter >= 8) {
+            Toast.makeText(GameActivity.this, "No winner, press back to restart", Toast.LENGTH_LONG).show();
         }
     }
 
