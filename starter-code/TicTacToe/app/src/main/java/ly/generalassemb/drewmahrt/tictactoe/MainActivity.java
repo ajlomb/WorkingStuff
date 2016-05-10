@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         //prevents play while either name field is blank when button is clicked
         if(playerOne.getText().toString().isEmpty() || playerTwo.getText().toString().isEmpty()){
-            Toast.makeText(MainActivity.this, "Who is playing!?", Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, R.string.empty_name, Toast.LENGTH_LONG).show();
         }else {
             //turn on shared preferences
             SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("SharedKey", MODE_PRIVATE);
@@ -54,9 +54,9 @@ public class MainActivity extends AppCompatActivity {
         winnerWinner = String.valueOf(sharedPreferences.getString("winnerWinner", ""));
         //adds different text depending on if games have been played previously or not; #aesthetics.
         if (sharedPreferences.getString("winnerWinner", "").toString().isEmpty()) {
-            winner.setText("Welcome to Happy-face Sad-face!");
+            winner.setText(getResources().getString(R.string.welcome));
         } else {
-            winner.setText("Previous game winner was " + winnerWinner + "!!!");
+            winner.setText(getResources().getString(R.string.last_winner)+" "+winnerWinner);
         }
     }
 

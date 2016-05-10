@@ -58,7 +58,7 @@ public class GameActivity extends AppCompatActivity {
                 (boxThree.getText().equals(":(") && boxFive.getText().equals(":(") && boxSeven.getText().equals(":("))) {
             chickenDinner = true;
             if (chickenDinner == true) {
-                playerTurn.setText(playerOneName1+ " stands triumphant over " +playerTwoName2+"!");
+                playerTurn.setText(playerOneName1+" "+getResources().getString(R.string.win_player_one)+" "+playerTwoName2);
                 editor.putString("winnerWinner", playerOneName1);
                 editor.commit();
                 boxOne.setClickable(false); boxTwo.setClickable(false); boxThree.setClickable(false); boxFour.setClickable(false);
@@ -76,7 +76,7 @@ public class GameActivity extends AppCompatActivity {
                 (boxThree.getText().equals(":)") && boxFive.getText().equals(":)") && boxSeven.getText().equals(":)"))) {
             chickenDinner = true;
             if (chickenDinner == true) {
-                playerTurn.setText(playerTwoName2+ " has schooled " +playerOneName1+ " in a child's game!");
+                playerTurn.setText(playerTwoName2+" "+getResources().getString(R.string.win_player_two)+" "+playerOneName1);
                 editor.putString("winnerWinner", playerTwoName2);
                 editor.commit();
                 boxOne.setClickable(false); boxTwo.setClickable(false); boxThree.setClickable(false); boxFour.setClickable(false);
@@ -85,7 +85,7 @@ public class GameActivity extends AppCompatActivity {
                 onCreateDialog();
             }
         } else if (counter >= 8) {
-            Toast.makeText(GameActivity.this, "No winner, press back to restart", Toast.LENGTH_LONG).show();
+            Toast.makeText(GameActivity.this, R.string.cats_game, Toast.LENGTH_LONG).show();
         }
     }
 

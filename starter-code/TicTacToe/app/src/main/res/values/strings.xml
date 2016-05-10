@@ -1,8 +1,13 @@
 <resources>
-    <string name="app_name">TicTacTow</string>
+    <string name="app_name">Happy Face, Sad Face</string>
     <string name="dialog_fire_missiles">We have a winner!</string>
     <string name="fire">Fire all fireworks!</string>
     <string name="player_name">Enter a name!</string>
     <string name="start">Start Game</string>
-    <string name="last_winner">Previous Winner was:</string>
+    <string name="last_winner">Previous Winner was</string>
+    <string name="cats_game">Stalemate, no winner this game!</string>
+    <string name="empty_name">Who is playing?</string>
+    <string name="welcome">Welcome to Happy Face, Sad Face!</string>
+    <string name="win_player_one">has defeated their nemesis,</string>
+    <string name="win_player_two">schooled their rival,</string>
 </resources>
