@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class GameActivity extends AppCompatActivity {
 
     boolean chickenDinner;
@@ -16,6 +18,7 @@ public class GameActivity extends AppCompatActivity {
     String playerOneName1, playerTwoName2;
     TextView playerTurn;
     TextView boxOne, boxTwo, boxThree, boxFour, boxFive, boxSix, boxSeven, boxEight, boxNine;
+    ArrayList<GameData> gameDetails = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +45,6 @@ public class GameActivity extends AppCompatActivity {
 
         playerTurn.setText(playerOneName1);
     }
-
 
     public void checkWinner() {
         chickenDinner = false;
@@ -197,6 +199,11 @@ public class GameActivity extends AppCompatActivity {
                     });
              builder.create().show();
     }
+
+//    public void onSaveInstanceState(Bundle outState) {
+//        outState.putParcelableArrayList("skeletonkey", gameDetails);
+//        super.onSaveInstanceState(outState);
+//    }
 
 }
 
