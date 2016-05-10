@@ -14,20 +14,20 @@
         android:id="@+id/player_one_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Player One's Name"/>
+        android:hint="@string/player_name"/>
 
     <EditText
         android:id="@+id/player_two_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Player Two's Name"
+        android:hint="@string/player_name"
         android:layout_below="@id/player_one_name"/>
 
     <Button
         android:id="@+id/start_game_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start Playing!"
+        android:text="@string/start"
         android:layout_below="@id/player_two_name"
         android:onClick="startPlaying"/>
 
@@ -37,7 +37,6 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_below="@id/start_game_button"
-        android:textSize="25sp"
-        android:text="Previous Winner:" />
+        android:textSize="25sp" />
 
 </RelativeLayout>

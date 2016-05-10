@@ -1,7 +1,9 @@
 package ly.generalassemb.drewmahrt.tictactoe;
 
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -62,6 +64,7 @@ public class GameActivity extends AppCompatActivity {
                 boxOne.setClickable(false); boxTwo.setClickable(false); boxThree.setClickable(false); boxFour.setClickable(false);
                 boxFive.setClickable(false); boxSix.setClickable(false); boxSeven.setClickable(false); boxEight.setClickable(false);
                 boxNine.setClickable(false);
+                onCreateDialog();
             }
         } if ((boxOne.getText().equals(":)") && boxTwo.getText().equals(":)") && boxThree.getText().equals(":)")) ||
                 (boxFour.getText().equals(":)") && boxFive.getText().equals(":)") && boxSix.getText().equals(":)")) ||
@@ -79,6 +82,7 @@ public class GameActivity extends AppCompatActivity {
                 boxOne.setClickable(false); boxTwo.setClickable(false); boxThree.setClickable(false); boxFour.setClickable(false);
                 boxFive.setClickable(false); boxSix.setClickable(false); boxSeven.setClickable(false); boxEight.setClickable(false);
                 boxNine.setClickable(false);
+                onCreateDialog();
             }
         } else if (counter >= 8) {
             Toast.makeText(GameActivity.this, "No winner, press back to restart", Toast.LENGTH_LONG).show();
@@ -184,5 +188,15 @@ public class GameActivity extends AppCompatActivity {
         view.setClickable(false);
         counter++;
     }
+    public void onCreateDialog() {
+            AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
+            builder.setMessage(R.string.dialog_fire_missiles)
+                    .setPositiveButton(R.string.fire, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                        }
+                    });
+             builder.create().show();
+    }
+
 }
 
